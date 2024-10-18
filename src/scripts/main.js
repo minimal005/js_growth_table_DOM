@@ -1,5 +1,11 @@
 'use strict';
 
+const table = document.querySelector('.field');
+const rowRemove = document.querySelector('.remove-row');
+const rowAdd = document.querySelector('.append-row');
+const columnAdd = document.querySelector('.append-column');
+const columnRemove = document.querySelector('.remove-column');
+
 document.addEventListener('click', (e) => {
   const target = e.target.closest('.button');
 
@@ -11,7 +17,6 @@ document.addEventListener('click', (e) => {
 });
 
 function changeTable(elem) {
-  const table = document.querySelector('.field');
   const addRow = elem.closest('.append-row');
   const addColumn = elem.closest('.append-column');
   const removeRow = elem.closest('.remove-row');
@@ -78,12 +83,6 @@ function removeAttribute(el) {
 
 // checking table sizes and activating inactive buttons
 function check() {
-  const table = document.querySelector('.field');
-  const rowRemove = document.querySelector('.remove-row');
-  const rowAdd = document.querySelector('.append-row');
-  const columnAdd = document.querySelector('.append-column');
-  const columnRemove = document.querySelector('.remove-column');
-
   if (table.rows.length > 2 && rowRemove.hasAttribute('disabled')) {
     removeAttribute(rowRemove);
   } else if (table.rows.length < 10 && rowAdd.hasAttribute('disabled')) {
